@@ -1,0 +1,45 @@
+# CodeBlocks for Caffe Debug
+
+## Comlipler Setting
+
+### Other options
+
+ -Wno-sign-compare
+
+### \#deines
+
+ CPU_ONLY=1
+ USE_OPENCV=1
+ USE_LEVELDB=1
+ USE_LMDB=1
+
+## Linker settings
+
+### Link libraries
+
+ /usr/local/lib/libopencv*
+ /usr/local/lib/libglog.so
+ /usr/local/lib/libgflags.a
+ /dee/tmp/caffe-mvco/build/lib/libcaffe.so
+
+### Other linker options
+
+ -pthread -lcaffe -lglog -lgflags -lprotobuf -lboost_system -lboost_filesystem -lm -lhdf5_hl -lhdf5 -lleveldb -lsnappy -llmdb -lopencv_core -lopencv_highgui -lopencv_imgproc -lboost_thread -lstdc++
+-Wl,-rpath,  ../caffe_mvco/build/lib/libcaffe.so
+
+## Search directory 
+
+### Compiler  
+ /urs/local/include/
+ /deep/tmp/caffe_mvco/build/src
+ /usr/local/include/gflags
+ /usr/local/include/glog
+ /deep/tmp/caffe_mvco/include
+ /deep/tmp/caffe_mvco/build/lib
+
+### Linker
+
+ /deep/tmp/caffe_mvco/build/lib
+ /usr/lib/x86_64-linux-gnu
+
+
