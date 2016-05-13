@@ -47,7 +47,17 @@ int main( int argc, char** argv )
 	imshow("Sobel", dstSobel);
    waitKey();
 
-
-	return 0;
+   // ********************    Scharr     ******************//
+   Mat scharrGX, scharrGY;
+   Mat scharrAGX, scharrAGY;
+   Mat scharrDst;
+   Scharr(dst_fil, scharrGX, CV_16S, 1, 0, 1, 0, BORDER_DEFAULT );
+   convertScaleAbs(scharrGX, scharrAGX);
+   Scharr(dst_fil, scharrGY, CV_16S, 0, 1, 0, 1, BORDER_DEFAULT);
+   convertScaleAbs(scharrGX, scharrAGY);
+   addWeighted(scharrAGX, 0.5, scharrAGY, 0.5, 0, scharrDst);
+    imshow("Scharr", scharrDst);
+    waitKey();
+    return 0;
 }
 
